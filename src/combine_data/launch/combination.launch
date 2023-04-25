@@ -1,0 +1,32 @@
+
+<launch>
+<!-- sick 245 -->
+ <!-- <include file="$(find sick_scan)/launch/sick_nav_2xx.launch"/> -->
+
+<!-- Transformation to see cloud-data in rviz -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="laser_base_to_laser" args="0 0 0 0 0 0 1 base_laser laser 50"  />
+  <node pkg="tf" type="static_transform_publisher" name="base_laser_to_base_link" args="0.24 0 0 0 0 0 1 base_link base_laser  50"  /> -->
+
+  <include file="$(find connect_node)/launch/connect_node.launch"/>
+  <include file="$(find inverse_kinetic)/launch/inverse_kinetic.launch"/>
+  
+  <!-- <node pkg="joy" type="joy_node" name="joy_node" required="true" output = "screen" />
+  <node pkg="ps3joy" type="ps3" name="ps3" required="true" output = "screen" >
+    <param name="topic_vdai_vgoc" value="Twist"/>
+    <param name="vtdai_xe" type="double" value="0.4" />
+    <param name="vtgoc_xe" type="double" value="0.5" />
+  </node> -->
+  
+<!-- ekf -->
+  <!-- <node name="odomtransformer" pkg="navigation" type="odomtransformer.py" output="screen">
+		<param name="odom_input" value="/odom" />
+		<param name="tf_output" value="/base_link" />
+  </node>
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+            <remap from="odometry/filtered" to="odom" />
+            <rosparam command="load" file="$(find combine_data)/param/ekf.yaml" />
+    </node>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ekf)/rviz/ekf.rviz" required="true"/> -->
+</launch>
